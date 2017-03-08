@@ -107,7 +107,9 @@ pch=19, col="black", xlab="day", ylab="Mean of number of steps per day"))
 points(correctAverageStepsDay$date, correctAverageStepsDay$`mean(steps)`, col="red")
 
 
-
+with(medianStepsDay, plot(medianStepsDay$date, medianStepsDay$`median(steps, na.rm = TRUE)`, 
+pch=19, col="black", xlab="day", ylab="Median of number of steps per day"))
+points(correctMedianStepsDay$date, correctMedianStepsDay$`median(steps)`, col="red")
 ```
 
 
