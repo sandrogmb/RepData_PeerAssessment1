@@ -56,14 +56,14 @@ intervalAverageSteps$interval[which.max(intervalAverageSteps$`mean(steps, na.rm 
 
 
 ## Imputing missing values
-1. Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with 𝙽𝙰s)  
+1.Calculate and report the total number of missing values in the dataset (i.e. the total number of rows with 𝙽𝙰s)  
 
 ```{r number of rows with na, echo= TRUE}
 totalNA<-sum(is.na(activity$steps))
 mean(is.na(activity$steps))
 ```
 
-2.and 3. Filling in all of the missing values in the dataset with the mean for the same 5-minute interval  
+2-3.Filling in all of the missing values in the dataset with the mean for the same 5-minute interval  
 
 ```{r substituting NAs, echo= TRUE}
 
@@ -89,19 +89,21 @@ activityWithoutNA<-mutate(activity, steps=passi)
 head(activityWithoutNA)
 ```
 
-4. Histogram of the new dataset  
+4.Histogram of the new dataset  
 
 ```{r hist of new dataset, echo= TRUE}
 correctGroupStepsDay<-group_by(activityWithoutNA, date)
 correctSumStepsDay<-summarize(correctGroupStepsDay, sum(steps))
 
-hist(correctSumStepsDay$`sum(steps)`, breaks = 61, xlab = "sum of steps per day", main = "Histogram of steps per day without NAs")
+hist(correctSumStepsDay$`sum(steps)`, breaks = 61, xlab = "sum of steps per day", 
+main = "Histogram of steps per day without NAs")
 
 correctAverageStepsDay<-summarize(correctGroupStepsDay, mean(steps))
 correctMedianStepsDay<-summarize(correctGroupStepsDay, median(steps))
 
 
-with(averageStepsDay, plot(averageStepsDay$date, averageStepsDay$`mean(steps, na.rm = TRUE)`, pch=19, col="black", xlab="day", ylab="Mean of number of steps per day"))
+with(averageStepsDay, plot(averageStepsDay$date, averageStepsDay$`mean(steps, na.rm = TRUE)`, 
+pch=19, col="black", xlab="day", ylab="Mean of number of steps per day"))
 points(correctAverageStepsDay$date, correctAverageStepsDay$`mean(steps)`, col="red")
 
 
@@ -137,5 +139,6 @@ names<-names(meanStepsIntDayVar)
 names[3]<-c("mean")
 names(meanStepsIntDayVar)<-names
 library(lattice)
-xyplot(mean~interval|dayVar, meanStepsIntDayVar, layout=c(1,2), type="l", xlab = "Interval", ylab = "Average number of steps")
+xyplot(mean~interval|dayVar, meanStepsIntDayVar, layout=c(1,2), type="l", xlab = "Interval", 
+ylab = "Average number of steps")
 ```
