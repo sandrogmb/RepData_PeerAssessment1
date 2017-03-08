@@ -8,11 +8,12 @@ output:
 
 ## Loading and preprocessing the data
 
+```{r load data, echo = TRUE}
 activity<-read.csv("activity.csv")   
 head(activity)   
 str(activity)  
 library(dplyr)  
-
+```
 
 
 ## What is mean total number of steps taken per day?
