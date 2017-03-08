@@ -1,0 +1,4 @@
+questo link è molto utile per avere info su come usare R e github per inviare files reciprocamente
+
+
+http://stackoverflow.com/questions/32516366/github-website-publishing-of-knit-generated-html-files-in-rstudio
