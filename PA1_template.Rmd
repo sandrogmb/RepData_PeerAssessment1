@@ -90,6 +90,7 @@ head(activityWithoutNA)
 ```
 
 4. Histogram of the new dataset  
+
 ```{r hist of new dataset, echo= TRUE}
 correctGroupStepsDay<-group_by(activityWithoutNA, date)
 correctSumStepsDay<-summarize(correctGroupStepsDay, sum(steps))
